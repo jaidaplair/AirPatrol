@@ -23,21 +23,21 @@ public class ReticleController : MonoBehaviour
         transform.Translate(movement * speed * Time.deltaTime);
 
         // Wrap around screen edges
-        if (transform.position.x > 9f)
+        if (transform.position.x > 8.5f)
         {
-            transform.position = new Vector3(-9f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(8.5f, transform.position.y, transform.position.z);
         }
-        else if (transform.position.x < -9f)
+        else if (transform.position.x < -8.5f)
         {
-            transform.position = new Vector3(9f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-8.5f, transform.position.y, transform.position.z);
         }
-        if (transform.position.y > 5f)
+        if (transform.position.y > 4.7f)
         {
-            transform.position = new Vector3(transform.position.x, -5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z);
         }
-        else if (transform.position.y < -5f)
+        else if (transform.position.y < -4.7f)
         {
-            transform.position = new Vector3(transform.position.x, 5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -4.7f, transform.position.z);
         }
 
         // Check for firing input
