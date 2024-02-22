@@ -8,13 +8,15 @@ public class ReticleController : MonoBehaviour
     [SerializeField] AudioClip firingSound;
     //made reference prefab of the explosion
     [SerializeField] GameObject explosion;
+    
+
 
     private AudioSource audioSource;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-       
+
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class ReticleController : MonoBehaviour
         }
 
         // Check for firing input
+
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
@@ -55,17 +58,19 @@ public class ReticleController : MonoBehaviour
             obj= Instantiate(babyPrefab);
             //Vector3.zero is equivalent to new Vector3(0,0,0)
             //spews babys out of the boss
-            obj.transform.position = transform.position;*/
+            obj.transform.position = transform.position;
+        */
         }
-    }
 
-    void Fire()
-    {
-        // Play firing sound
-        if (firingSound != null)
+
+        void Fire()
         {
-            audioSource.PlayOneShot(firingSound);
-           
+            // Play firing sound
+            if (firingSound != null)
+            {
+                audioSource.PlayOneShot(firingSound);
+
+            }
         }
     }
-}
+}  
