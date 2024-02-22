@@ -14,7 +14,7 @@ public class ReticleController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-       // Destroy(gameObject, 3.6f);
+       
     }
 
     void Update()
@@ -47,7 +47,7 @@ public class ReticleController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
-            //function to make a explosioneverytime space is pushed, returns a reference to the pbject that was created
+            //function to make a explosion everytime space is pushed, returns a reference to the pbject that was created
             Instantiate(explosion, transform.position, transform.rotation);
             /*
              //make a new baby everytime space is pushed, returns a reference to the pbject that was created
