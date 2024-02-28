@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float y = 0.0005f;
     [SerializeField] AudioClip firingSound;
     //made reference prefab of the explosion
-    [SerializeField] GameObject explosion;
+    //[SerializeField] GameObject explosion;
 
 
 
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             float newX = transform.position.x + 0.9f;
             Fire();
             //function to make a explosion everytime space is pushed, returns a reference to the pbject that was created
-            Instantiate(explosion, new Vector3(newX, transform.position.y, transform.position.z), transform.rotation);
+            //Instantiate(explosion, new Vector3(newX, transform.position.y, transform.position.z), transform.rotation);
 
             //Instantiate(explosion, transform.position, transform.rotation);
             /*

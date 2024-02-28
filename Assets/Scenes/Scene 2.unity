@@ -178,18 +178,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000023841858}
+  m_Offset: {x: 0.071190834, y: -0.07118845}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 5.53, y: 11.25}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 3.099062}
+  m_Size: {x: 5.850895, y: 11.78402}
   m_EdgeRadius: 0
 --- !u!1 &368606396 stripped
 GameObject:
@@ -1120,7 +1120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a0726574d174428dadb31738ee7f380, type: 3}
   m_Color: {r: 0, g: 0.79607844, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1140,8 +1140,8 @@ Transform:
   m_GameObject: {fileID: 1775409816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 0.13, z: 0}
-  m_LocalScale: {x: 20.269, y: 20.269, z: 20.269}
+  m_LocalPosition: {x: -0.09, y: -1.71, z: 0}
+  m_LocalScale: {x: 4.438063, y: 4.438063, z: 4.438063}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1391,11 +1391,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4343102
+      value: 0.815737
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.43431017
+      value: 0.8157369
+      objectReference: {fileID: 0}
+    - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8157366
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1403,7 +1407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1438,6 +1442,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1191652473104925564, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bcde639cfbb554bd7bc84f95fdbc66e9, type: 3}
+    - target: {fileID: 1191652473104925564, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1447,7 +1455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3015975219676113041, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_Name
-      value: fighter jet
+      value: scooby
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1542,13 +1550,29 @@ PrefabInstance:
       propertyPath: m_TagString
       value: BadGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 5595741105472717519, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 264f5238974734c97a610570b3f7a1ea, type: 3}
+    - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25731203
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25731203
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25731203
+      objectReference: {fileID: 0}
     - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.92
+      value: 7.9168
       objectReference: {fileID: 0}
     - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03
+      value: -1.7768
       objectReference: {fileID: 0}
     - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
       propertyPath: m_LocalPosition.z

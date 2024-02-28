@@ -39,8 +39,6 @@ public class BulletMoving : MonoBehaviour
 
         }
 
-
-
         Destroy(collision.gameObject);//destroy object we hit
         Destroy(gameObject);//destroy the fireball
                             //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);

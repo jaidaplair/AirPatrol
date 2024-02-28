@@ -11,6 +11,7 @@ public class BadGuyMovement : MonoBehaviour
     float futureTime = 0f; //this is the time when we will istantiate a good or bad guy
     [SerializeField] float minRange = 1f;
     [SerializeField] float maxRange = 3f;
+    [SerializeField] GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,23 @@ public class BadGuyMovement : MonoBehaviour
             //Vector3.zero is equivalent to new Vector3(0,0,0)
             //spews babys out of the boss
             obj.transform.position = transform.position;*/
+            
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BadGuy") == true)
+        {   //increment score
+            //gm.score += 10;
+            Instantiate(explosion, transform.position, transform.rotation);
+
+        }
+        if (collision.CompareTag("GoodGuy") == true)
+        {   //decrement score
+            Instantiate(explosion, transform.position, transform.rotation);
+            //gm.score -= 15;
 
         }
     }
