@@ -57,11 +57,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            float newY = transform.position.y + 0.59f;
-            float newX = transform.position.x + 0.5f;
+            //float newY = transform.position.y + 1f;
+            float newX = transform.position.x + 0.9f;
             Fire();
             //function to make a explosion everytime space is pushed, returns a reference to the pbject that was created
-            Instantiate(explosion, new Vector3(newX, newY, transform.position.z), transform.rotation);
+            Instantiate(explosion, new Vector3(newX, transform.position.y, transform.position.z), transform.rotation);
 
             //Instantiate(explosion, transform.position, transform.rotation);
             /*
