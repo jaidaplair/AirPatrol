@@ -4,51 +4,66 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //[SerializeField] float speed = 4.7f;
+    [SerializeField] float minY = -4.7f;
+    [SerializeField] float maxY = 4f;
     [SerializeField] float speed = 5f;
+    [SerializeField] float y = 0.0005f;
     [SerializeField] AudioClip firingSound;
     //made reference prefab of the explosion
     [SerializeField] GameObject explosion;
 
-    // Start is called before the first frame update
+
+
     private AudioSource audioSource;
+
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        // Control reticle movement
+        //float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0);
-        transform.Translate(movement * speed * Time.deltaTime);
+        //Vector3 movement = new Vector3(horizontalInput, verticalInput, 0);
+        //transform.Translate(movement * speed * Time.deltaTime);
+        transform.Translate(Time.deltaTime * y * speed * Vector3.up);
+
 
         // Wrap around screen edges
-        if (transform.position.x > 7f)
+        /*if (transform.position.x > 7f)
         {
             transform.position = new Vector3(7f, transform.position.y, transform.position.z);
         }
         else if (transform.position.x < -7f)
         {
             transform.position = new Vector3(-7f, transform.position.y, transform.position.z);
-        }
-        if (transform.position.y > 4.7f)
+        }*/
+        //peg the movement to max y
+        if (transform.position.y > maxY)
         {
-            transform.position = new Vector3(transform.position.x, 4.7f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, maxY, 0f);
         }
-        else if (transform.position.y < -4.7f)
+        //peg the movement to min y
+        if (transform.position.y < minY)
         {
-            transform.position = new Vector3(transform.position.x, -4.7f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, minY, 0f);
         }
 
         // Check for firing input
 
         if (Input.GetButtonDown("Fire1"))
         {
+            float newY = transform.position.y + 0.59f;
+            float newX = transform.position.x + 0.5f;
             Fire();
             //function to make a explosion everytime space is pushed, returns a reference to the pbject that was created
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosion, new Vector3(newX, newY, transform.position.z), transform.rotation);
+
+            //Instantiate(explosion, transform.position, transform.rotation);
             /*
              //make a new baby everytime space is pushed, returns a reference to the pbject that was created
             GameObject obj;
@@ -58,14 +73,16 @@ public class PlayerController : MonoBehaviour
             obj.transform.position = transform.position;
         */
         }
-    }
-    void Fire()
-    {
-        // Play firing sound
-        if (firingSound != null)
-        {
-            audioSource.PlayOneShot(firingSound);
 
+
+        void Fire()
+        {
+            // Play firing sound
+            if (firingSound != null)
+            {
+                audioSource.PlayOneShot(firingSound);
+
+            }
         }
     }
 }
