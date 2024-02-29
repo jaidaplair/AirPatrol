@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float y = 0.0005f;
     [SerializeField] AudioClip firingSound;
+    [SerializeField] GameObject bulletPrefab;
+
     //made reference prefab of the explosion
     //[SerializeField] GameObject explosion;
 
@@ -27,21 +30,14 @@ public class PlayerController : MonoBehaviour
     {
         // Control reticle movement
         //float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+       // float verticalInput = Input.GetAxis("Vertical");
         //Vector3 movement = new Vector3(horizontalInput, verticalInput, 0);
         //transform.Translate(movement * speed * Time.deltaTime);
+       // transform.Translate(Time.deltaTime * y * speed * Vector3.up);
+        float y = Input.GetAxis("Vertical");
+
         transform.Translate(Time.deltaTime * y * speed * Vector3.up);
 
-
-        // Wrap around screen edges
-        /*if (transform.position.x > 7f)
-        {
-            transform.position = new Vector3(7f, transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x < -7f)
-        {
-            transform.position = new Vector3(-7f, transform.position.y, transform.position.z);
-        }*/
         //peg the movement to max y
         if (transform.position.y > maxY)
         {
@@ -53,8 +49,40 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, minY, 0f);
         }
 
-        // Check for firing input
+        if (Input.GetButtonDown("Fire1"))
+        {
+            float newY = transform.position.y + 0.59f;
+            float newX = transform.position.x + 0.5f;
 
+            //Fire();
+
+            Instantiate(bulletPrefab, new Vector3(newX, newY, transform.position.z), transform.rotation);
+            //Fire();
+        }
+
+        // Wrap around screen edges
+        /*if (transform.position.x > 7f)
+        {
+            transform.position = new Vector3(7f, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x < -7f)
+        {
+            transform.position = new Vector3(-7f, transform.position.y, transform.position.z);
+        }*/
+        //peg the movement to max y
+        /*
+        if (transform.position.y > maxY)
+        {
+            transform.position = new Vector3(transform.position.x, maxY, 0f);
+        }
+        //peg the movement to min y
+        if (transform.position.y < minY)
+        {
+            transform.position = new Vector3(transform.position.x, minY, 0f);
+        }
+
+        // Check for firing input
+        
         if (Input.GetButtonDown("Fire1"))
         {
             //float newY = transform.position.y + 1f;
@@ -74,7 +102,7 @@ public class PlayerController : MonoBehaviour
         */
         }
 
-
+    /*
         void Fire()
         {
             // Play firing sound
@@ -83,6 +111,6 @@ public class PlayerController : MonoBehaviour
                 audioSource.PlayOneShot(firingSound);
 
             }
-        }
-    }
+        }*/
 }
+

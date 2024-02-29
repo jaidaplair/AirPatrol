@@ -12,18 +12,43 @@ public class BadGuyMovement : MonoBehaviour
     [SerializeField] float minRange = 1f;
     [SerializeField] float maxRange = 3f;
     [SerializeField] GameObject explosion;
+    [SerializeField] float minY = -8f;
+    [SerializeField] float maxY = 8f;
     // Start is called before the first frame update
+    //the boolean travelDirection is true when we are going up and false when we are going down.
+    bool travelDirection = true;
     void Start()
     {
         //destroy object after a certain amount of seconds
-        Destroy(gameObject, 7f);
+        //Destroy(gameObject, 7f);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (travelDirection == true)
+        {//we are moving up
+            transform.Translate(Time.deltaTime * speed * Vector3.up);
+        }
+        else
+        {//we are moving down
+            transform.Translate(Time.deltaTime * speed * Vector3.down);
+        }
+        //if we hit the top change direction
+        if (transform.position.y > maxY)
+        {
+            travelDirection = false;
+        }
+        //if we hit the bottom change direction
+        if (transform.position.y < minY)
+        {
+            travelDirection = true;
+        }
+
+
         //move left across the screen
-        transform.Translate(Time.deltaTime * speed * Vector3.left);
+        //transform.Translate(Time.deltaTime * speed * Vector3.left);
 
         if (Time.time > futureTime)//
         //if (Input.GetKeyDown(KeyCode.Space))
