@@ -140,8 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984fbc7c618854b99a207dee2a60b72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5
   BadGuy: {fileID: 3505901143264522629, guid: 35d8b88e4b561b048b394dc9cbe1f92a, type: 3}
+  BadGuy2: {fileID: 3701842820408524682, guid: 7e35adefc48f1f74abcf1898415489a2, type: 3}
   GoodGuy: {fileID: 7940638264098386810, guid: 92291d256be2f1f4988ac5b317552d68, type: 3}
   GoodToBadRatio: 50
   minRange: 1
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b55c19b612e514291056ffbb2748af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: -4.7
+  minY: -4
   maxY: 4
   speed: 5
   y: 0.0005
@@ -1117,9 +1118,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e69b6c5681f965941a7a3733fd272041, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.583
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1462,7 +1463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.47
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 497356778783524890, guid: 30822a436c4e3254eb8dfb322c1ab19c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1627,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7768
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 5860859841006678101, guid: 0dd92d593f58f4255be8e02b3bd47dfc, type: 3}
       propertyPath: m_LocalPosition.z

@@ -6,6 +6,7 @@ public class BadGuyMovement : MonoBehaviour
 {
     [SerializeField] float speed = 4f;
     [SerializeField] GameObject BadGuy;
+    [SerializeField] GameObject BadGuy2;
     [SerializeField] GameObject GoodGuy;
     [SerializeField] int GoodToBadRatio = 50;
     float futureTime = 0f; //this is the time when we will istantiate a good or bad guy
@@ -55,10 +56,21 @@ public class BadGuyMovement : MonoBehaviour
         {
             futureTime = Time.time + Random.Range(minRange, maxRange);
             int r = Random.Range(0, 100);
+            int j = Random.Range(1,3);
             if (r < GoodToBadRatio)
             {
-                Instantiate(BadGuy, transform.position, transform.rotation);
+                if (j == 1 )
+                {
+                    Instantiate(BadGuy, transform.position, transform.rotation);
+                }
+                else
+                {
+                    Instantiate(BadGuy2, transform.position, transform.rotation);
+                }
+                //Instantiate(BadGuy2, transform.position, transform.rotation);
+
             }
+           
             else
             {
                 //function to make a new goodguy everytime space is pushed, returns a reference to the pbject that was created

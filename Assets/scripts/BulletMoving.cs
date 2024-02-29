@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class BulletMoving : MonoBehaviour
 {
     [SerializeField] float speed = 4f;
 
@@ -38,7 +38,7 @@ public class Fireball : MonoBehaviour
             gm.score -= 15;
 
         }
-
+        
         Destroy(collision.gameObject);//destroy object we hit
         Destroy(gameObject);//destroy the fireball
         //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
