@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletMoving : MonoBehaviour
 {
     [SerializeField] float speed = 4f;
+    [SerializeField] GameObject ketchup;
 
     //[SerializeField] AudioClip firingSound;
     // private AudioSource audioSource;
@@ -14,6 +15,7 @@ public class BulletMoving : MonoBehaviour
         // audioSource = GetComponent<AudioSource>();
         //destroy object after a certain amount of seconds
         Destroy(gameObject, 3.6f);
+        
     }
 
     // Update is called once per frame
@@ -21,8 +23,10 @@ public class BulletMoving : MonoBehaviour
     {
         //move left across the screen
         transform.Translate(Time.deltaTime * speed * Vector3.right);
-    }
+        
 
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {   //find and return the first object you see with a gamemanager component in it
         GameManager gm;
@@ -38,9 +42,15 @@ public class BulletMoving : MonoBehaviour
             gm.score -= 15;
 
         }
-        
+        Instantiate(ketchup, transform.position, transform.rotation);
+       
+
+
         Destroy(collision.gameObject);//destroy object we hit
         Destroy(gameObject);//destroy the fireball
+                            //destroy ketchup
         //Debug.Log("Ive been triggered!!!!!!!!!"+ collision.name);
     }
+
+   
 }
