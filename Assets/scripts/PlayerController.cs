@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxY = 4f;
     [SerializeField] float speed = 5f;
     [SerializeField] float y = 0.0005f;
-    [SerializeField] AudioClip firingSound;
+    [SerializeField] AudioClip yelp;
+    [SerializeField] AudioClip mmm;
     [SerializeField] GameObject bulletPrefab;
 
     //made reference prefab of the explosion
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(bulletPrefab, new Vector3(newX, newY, transform.position.z), transform.rotation);
             //Fire();
         }
+        
 
         // Wrap around screen edges
         /*if (transform.position.x > 7f)
@@ -101,7 +103,29 @@ public class PlayerController : MonoBehaviour
             obj.transform.position = transform.position;
         */
         }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameManager gm;
+        gm = FindAnyObjectByType<GameManager>();
 
+        if (collision.CompareTag("BadGuy") == true)
+        {
+            audioSource.PlayOneShot(yelp);
+            gm.score -= 5;
+            Destroy(collision.gameObject);//destroy object we hit
+         
+
+        }
+        if (collision.CompareTag("GoodGuy") == true)
+        {
+            audioSource.PlayOneShot(mmm);
+            gm.score += 5;
+            Destroy(collision.gameObject);//destroy object we hit
+         
+
+
+        }
+    }
     /*
         void Fire()
         {

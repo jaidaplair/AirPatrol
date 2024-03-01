@@ -20,6 +20,7 @@ public class BadGuyMovement : MonoBehaviour
     bool travelDirection = true;
     void Start()
     {
+        
         //destroy object after a certain amount of seconds
         //Destroy(gameObject, 7f);
     }
@@ -27,6 +28,7 @@ public class BadGuyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
 
         if (travelDirection == true)
         {//we are moving up
@@ -46,7 +48,7 @@ public class BadGuyMovement : MonoBehaviour
         {
             travelDirection = true;
         }
-
+        */
 
         //move left across the screen
         //transform.Translate(Time.deltaTime * speed * Vector3.left);
@@ -61,11 +63,19 @@ public class BadGuyMovement : MonoBehaviour
             {
                 if (j == 1 )
                 {
-                    Instantiate(BadGuy, transform.position, transform.rotation);
+                    GameObject g = Instantiate(BadGuy, transform.position, transform.rotation);
+                    g.transform.position = new Vector3(transform.position.x, Random.Range(-4f,4f), transform.position.z);
+                    g.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
+
                 }
                 else
                 {
-                    Instantiate(BadGuy2, transform.position, transform.rotation);
+                   GameObject k= Instantiate(BadGuy2, transform.position, transform.rotation);
+                   k.transform.position = new Vector3(transform.position.x, Random.Range(-4f, 4f), transform.position.z);
+                   k.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
+                    
+                   
+
                 }
                 //Instantiate(BadGuy2, transform.position, transform.rotation);
 
@@ -73,8 +83,10 @@ public class BadGuyMovement : MonoBehaviour
            
             else
             {
-                //function to make a new goodguy everytime space is pushed, returns a reference to the pbject that was created
-                Instantiate(GoodGuy, transform.position, transform.rotation);
+                //function to make a new goodguy everytime space is pushed, returns a reference to the object that was created
+                GameObject m = Instantiate ( GoodGuy, transform.position, transform.rotation);
+                m.transform.position = new Vector3(transform.position.x, Random.Range(-4f, 4f), transform.position.z);
+                m.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
             }
             //function to make a new baby everytime space is pushed, returns a reference to the pbject that was created
             //Instantiate(babyPrefab, transform.position, transform.rotation);
