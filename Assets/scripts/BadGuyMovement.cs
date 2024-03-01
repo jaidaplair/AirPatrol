@@ -65,14 +65,14 @@ public class BadGuyMovement : MonoBehaviour
                 {
                     GameObject g = Instantiate(BadGuy, transform.position, transform.rotation);
                     g.transform.position = new Vector3(transform.position.x, Random.Range(-4f,4f), transform.position.z);
-                    g.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
+                    g.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-9f, 9f)));
 
                 }
                 else
                 {
                    GameObject k= Instantiate(BadGuy2, transform.position, transform.rotation);
                    k.transform.position = new Vector3(transform.position.x, Random.Range(-4f, 4f), transform.position.z);
-                   k.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
+                   k.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-9f, 9f)));
                     
                    
 
@@ -86,7 +86,7 @@ public class BadGuyMovement : MonoBehaviour
                 //function to make a new goodguy everytime space is pushed, returns a reference to the object that was created
                 GameObject m = Instantiate ( GoodGuy, transform.position, transform.rotation);
                 m.transform.position = new Vector3(transform.position.x, Random.Range(-4f, 4f), transform.position.z);
-                m.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-10f, 10f)));
+                m.transform.Rotate(new Vector3(transform.position.x, transform.position.y, Random.Range(-9f, 9f)));
             }
             //function to make a new baby everytime space is pushed, returns a reference to the pbject that was created
             //Instantiate(babyPrefab, transform.position, transform.rotation);

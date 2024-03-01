@@ -11,7 +11,7 @@ public class CloudScrolling : MonoBehaviour
     {
         //move left across the screen
         transform.Translate(Time.deltaTime * speed * Vector3.left);
-        if (transform.position.x < -resetPosition -15)
+        if (transform.position.x < -resetPosition - 16.80f) 
         {
             ResetCloudPosition();
         }
