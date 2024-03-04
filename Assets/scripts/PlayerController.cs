@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip yelp;
     [SerializeField] AudioClip mmm;
     [SerializeField] GameObject bulletPrefab;
-
+    [SerializeField] GameOverManager gameOverManager;
     //made reference prefab of the explosion
     //[SerializeField] GameObject explosion;
+
 
 
 
@@ -113,8 +115,12 @@ public class PlayerController : MonoBehaviour
             audioSource.PlayOneShot(yelp);
             gm.score -= 5;
             Destroy(collision.gameObject);//destroy object we hit
-         
-
+            gm.currentLives -= 1;//changing lives
+            if (gm.currentLives == 0)
+            {
+                gameOverManager.SetGameOver();
+            }
+            
         }
         if (collision.CompareTag("GoodGuy") == true)
         {
@@ -126,6 +132,10 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+   
+
+
     /*
         void Fire()
         {
